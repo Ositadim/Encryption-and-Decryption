@@ -1,25 +1,25 @@
  Encryption and Decryption
 
- 🛠️ Skills Demonstrated
-🐧 Linux (Command Line)
+ # Skills Demonstrated
+- Linux (Command Line)
 
-Navigating directories and files (ls, cd, cat)
+- Navigating directories and files (ls, cd, cat)
 
-Working with hidden files
+- Working with hidden files
 
 Executing security-related commands in a Linux environment
 
 🔐 OpenSSL
 
-Decrypting AES-256-CBC encrypted files
+- Decrypting AES-256-CBC encrypted files
 
-Using secure key derivation (-pbkdf2)
+- Using secure key derivation (-pbkdf2)
 
-Handling Base64-encoded encrypted data
+- Handling Base64-encoded encrypted data
 
-Verifying successful decryption through file inspection
+- Verifying successful decryption through file inspection
 
-🔑 Cryptographic Hashing
+# Cryptographic Hashing
 
 Generating SHA-256 hash values with sha256sum
 
@@ -29,49 +29,50 @@ Comparing hash outputs manually using cmp
 
 Identifying file changes through hash mismatches
 
-🛂 Identity & Access Management (IAM)
+# Identity & Access Management (IAM)
 
-Analyzing authentication and authorization controls
+- Analyzing authentication and authorization controls
 
-Reviewing event logs to identify suspicious user activity
+- Reviewing event logs to identify suspicious user activity
 
-Identifying access-control weaknesses
+- Identifying access-control weaknesses
 
-Recommending mitigations such as:
+- Recommending mitigations such as:
 
-Least-privilege access
+- Least-privilege access
 
-Role-based access control (RBAC)
+- Role-based access control (RBAC)
 
-Timely access revocation during offboarding.
+- Timely access revocation during offboarding.
 
 # MODULE 2 — Decrypt an encrypted message (Linux commands)
 # Assets, Threats, and Vulnerabilities
 
-# Task 1: Read the contents of a file
-# List files in the home directory
-ls /home/analyst
-# Read the instructions in README.txt
-cat README.txt
-# Task 2: Find and decrypt a hidden file
-# Change to the caesar subdirectory
-cd caesar
-# List all files, including hidden files
-ls -a
-# View the contents of the hidden file
-cat .leftShift3
-# Decrypt the Caesar cipher (left shift by 3)
-cat .leftShift3 | tr "d-za-cD-ZA-C" "a-zA-Z"
+Task 1: Read the contents of a file
+- List files in the home directory
+- ls /home/analyst
+Read the instructions in README.txt
+- cat README.txt
+Task 2: Find and decrypt a hidden file
+Change to the caesar subdirectory
+- cd caesar
+List all files, including hidden files
+- ls -a
+View the contents of the hidden file
+- cat .leftShift3
+Decrypt the Caesar cipher (left shift by 3)
+- cat .leftShift3 | tr "d-za-cD-ZA-C" "a-zA-Z"
 
-# Return to the home directory
-cd ~
-# Task 3: Decrypt the encrypted file
-# Decrypt the encrypted file using the revealed OpenSSL command
-openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
-# Confirm the decrypted file exists
-ls
-# Read the decrypted message
-cat Q1.recovered
+Return to the home directory
+- cd ~
+
+Task 3: Decrypt the encrypted file
+Decrypt the encrypted file using the revealed OpenSSL command
+- openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
+Confirm the decrypted file exists
+- ls
+Read the decrypted message
+- cat Q1.recovered
 
 Activity overview 2
 As a security analyst, you’ll need to implement security controls to protect organizations against a range of threats.
@@ -80,38 +81,35 @@ For example, a malicious program may mimic an original program. If one code line
 Many tools are available to compare hashes for various scenarios. But for a security analyst it’s important to know how to manually compare hashes.
 In this lab activity, we’ll create hash values for two files and use Linux commands to manually examine the differences.
 Code: 
-# MODULE 2 — Create hash values (Linux commands)
-# Assets, Threats, and Vulnerabilities
-# Task 1: Generate hashes for files
+MODULE 2 — Create hash values (Linux commands)
 
-# List the contents of the home directory
-ls
+Task 1: Generate hashes for files
+List the contents of the home directory
+- ls
 
-# Display the contents of file1.txt
-cat file1.txt
+Display the contents of file1.txt
+- cat file1.txt
+Display the contents of file2.txt
+- cat file2.txt
 
-# Display the contents of file2.txt
-cat file2.txt
+Generate a SHA-256 hash for file1.txt
+- sha256sum file1.txt
 
-# Generate a SHA-256 hash for file1.txt
-sha256sum file1.txt
+Generate a SHA-256 hash for file2.txt
+- sha256sum file2.txt
 
-# Generate a SHA-256 hash for file2.txt
-sha256sum file2.txt
+Task 2: Compare hashes
+Generate the hash for file1.txt and save it to file1hash
+- sha256sum file1.txt >> file1hash
 
-# Task 2: Compare hashes
+Generate the hash for file2.txt and save it to file2hash
+- sha256sum file2.txt >> file2hash
 
-# Generate the hash for file1.txt and save it to file1hash
-sha256sum file1.txt >> file1hash
+Display the contents of the hash files
+- cat file1hash
+- cat file2hash
 
-# Generate the hash for file2.txt and save it to file2hash
-sha256sum file2.txt >> file2hash
-
-# Display the contents of the hash files
-cat file1hash
-cat file2hash
-
-# Compare the two hash files byte by byte
+. Compare the two hash files byte by byte
 cmp file1hash file2hash
 
 <img width="940" height="423" alt="image" src="https://github.com/user-attachments/assets/c504d6ea-8741-436e-a8d1-ccfa49a08ec7" />
