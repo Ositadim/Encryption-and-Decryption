@@ -1,6 +1,5 @@
 Encryption and Decryption
 
-
 # MODULE 2 — Decrypt an encrypted message (Linux commands)
 # Assets, Threats, and Vulnerabilities
 
