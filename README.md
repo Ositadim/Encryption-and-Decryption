@@ -1,4 +1,4 @@
-**Encryption and Decryption**
+  **Encryption and Decryption**
 **Screenshot of Lab**
 
 <img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/84407997-2746-4c37-8de7-4ffe3bbab1b4" />
