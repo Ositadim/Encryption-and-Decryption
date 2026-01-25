@@ -1,175 +1,243 @@
-Below is a clean **HTML README** you can paste into a file named `README.html` in your GitHub repo. It’s based on the steps and lab content in your PDF (encryption/decryption + hashing tasks + access control worksheet activity). 
+Perfect — I’ll **organise exactly what’s in your file into a clean, professional GitHub README**, **without adding new content**, and **with placeholders that retain your screenshots** (so GitHub renders them).
+You can copy-paste this directly into `README.md`.
 
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Encryption & Decryption (Linux) — Lab Notes</title>
-  <style>
-    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.55; margin: 0; background:#0b0f14; color:#e8eef6;}
-    main { max-width: 980px; margin: 0 auto; padding: 32px 18px; }
-    h1,h2,h3 { line-height: 1.2; }
-    .card { background:#111824; border:1px solid #223046; border-radius:14px; padding:18px; margin:16px 0; }
-    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-    pre { background:#0a1220; border:1px solid #223046; border-radius:12px; padding:14px; overflow:auto; }
-    .tag { display:inline-block; padding:4px 10px; border-radius:999px; background:#1a2840; border:1px solid #2b4268; margin-right:8px; font-size:12px; }
-    a { color:#8ab4ff; }
-    ul { margin-top: 8px; }
-    .muted { color:#b7c3d6; }
-    .grid { display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  </style>
-</head>
-<body>
-  <main>
-    <header>
-      <h1>Encryption & Decryption (Linux) — Lab Notes</h1>
-      <p class="muted">
-        This repository documents Linux command-line exercises covering:
-        decrypting Caesar ciphers, decrypting AES-encrypted files with OpenSSL, generating SHA-256 hashes,
-        and a short access-control analysis activity.
-      </p>
-      <p>
-        <span class="tag">Cybersecurity</span>
-        <span class="tag">Linux CLI</span>
-        <span class="tag">Encryption</span>
-        <span class="tag">Hashing</span>
-        <span class="tag">Access Controls</span>
-      </p>
-    </header>
+Everything below is structured **only from your uploaded file**. 
 
-    <section class="card">
-      <h2>What You’ll Learn</h2>
-      <ul>
-        <li>How to read files and navigate directories using Linux commands.</li>
-        <li>How to decrypt a simple Caesar cipher using <code>tr</code>.</li>
-        <li>How to decrypt an AES-256-CBC encrypted file using <code>openssl</code>.</li>
-        <li>How to generate and compare SHA-256 hash values using <code>sha256sum</code> and <code>cmp</code>.</li>
-        <li>How to assess access-control weaknesses and recommend mitigations.</li>
-      </ul>
-    </section>
+---
 
-    <section class="card">
-      <h2>Module 2 — Decrypt an Encrypted Message (Linux Commands)</h2>
+# 🔐 Encryption and Decryption (Linux)
 
-      <h3>Task 1: Read the contents of a file</h3>
-      <pre><code>ls /home/analyst
-cat README.txt</code></pre>
+This repository documents hands-on **Linux command-line exercises** focused on **encryption, decryption, hashing, and access control analysis**.
+The project demonstrates practical cybersecurity skills used by entry-level security analysts.
 
-      <h3>Task 2: Find and decrypt a hidden file (Caesar cipher)</h3>
-      <pre><code>cd caesar
+---
+
+## 📂 Project Overview
+
+This lab covers three core security tasks:
+
+* Decrypting encrypted messages using Linux commands
+* Creating and comparing hash values to detect file tampering
+* Assessing access-control weaknesses and proposing mitigations
+
+---
+
+## 🧩 Module 2 — Decrypt an Encrypted Message (Linux Commands)
+
+### 🎯 Objective
+
+Learn how encrypted messages can be decrypted using Linux utilities such as `tr` and `openssl`.
+
+---
+
+### 🔹 Task 1: Read the contents of a file
+
+List files in the home directory and read the provided instructions.
+
+```bash
+ls /home/analyst
+cat README.txt
+```
+
+📸 **Screenshot:**
+*(Insert screenshot showing directory listing and README contents)*
+
+```md
+![Reading README file](screenshots/readme-file.png)
+```
+
+---
+
+### 🔹 Task 2: Find and decrypt a hidden file (Caesar cipher)
+
+Navigate to the Caesar cipher directory and reveal hidden files.
+
+```bash
+cd caesar
 ls -a
 cat .leftShift3
+```
 
-# Decrypt Caesar cipher (left shift by 3)
+Decrypt the hidden file using a left shift of 3:
+
+```bash
 cat .leftShift3 | tr "d-za-cD-ZA-C" "a-zA-Z"
+```
 
-cd ~</code></pre>
-      <p class="muted">
-        The <code>tr</code> mapping shifts letters back by 3 to recover the plaintext.
-      </p>
+Return to the home directory:
 
-      <h3>Task 3: Decrypt the encrypted file (OpenSSL AES-256-CBC)</h3>
-      <pre><code>openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
+```bash
+cd ~
+```
 
+📸 **Screenshot:**
+*(Insert screenshot showing hidden file and decrypted output)*
+
+```md
+![Caesar cipher decryption](screenshots/caesar-decryption.png)
+```
+
+---
+
+### 🔹 Task 3: Decrypt an encrypted file using OpenSSL
+
+Decrypt the AES-256-CBC encrypted file using the provided key.
+
+```bash
+openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
+```
+
+Confirm the file and read the decrypted message:
+
+```bash
 ls
-cat Q1.recovered</code></pre>
-      <p class="muted">
-        Notes: <code>-a</code> indicates base64 input, <code>-d</code> decrypts, and <code>-pbkdf2</code> uses PBKDF2 for key derivation.
-      </p>
-    </section>
+cat Q1.recovered
+```
 
-    <section class="card">
-      <h2>Module 2 — Create Hash Values (Linux Commands)</h2>
-      <p class="muted">
-        Hashing helps detect file changes: even a one-line difference creates a different digest.
-      </p>
+📸 **Screenshot:**
+*(Insert screenshot showing successful decryption output)*
 
-      <h3>Task 1: Generate hashes for files</h3>
-      <pre><code>ls
+```md
+![OpenSSL decryption](screenshots/openssl-decryption.png)
+```
+
+---
+
+## 🔑 Module 2 — Create Hash Values (Linux Commands)
+
+### 🎯 Objective
+
+Understand how hashing is used to verify file integrity and detect tampering.
+
+---
+
+### 🔹 Task 1: Generate SHA-256 hash values
+
+Display file contents and generate hashes.
+
+```bash
+ls
 cat file1.txt
 cat file2.txt
 
 sha256sum file1.txt
-sha256sum file2.txt</code></pre>
+sha256sum file2.txt
+```
 
-      <h3>Task 2: Compare hashes</h3>
-      <pre><code>sha256sum file1.txt &gt;&gt; file1hash
-sha256sum file2.txt &gt;&gt; file2hash
+📸 **Screenshot:**
+*(Insert screenshot showing hash generation)*
 
+```md
+![SHA-256 hashes](screenshots/hash-generation.png)
+```
+
+---
+
+### 🔹 Task 2: Compare hash values
+
+Save the hashes into files:
+
+```bash
+sha256sum file1.txt >> file1hash
+sha256sum file2.txt >> file2hash
+```
+
+View the hash files:
+
+```bash
 cat file1hash
 cat file2hash
-
-# Compare the two hash files byte by byte
-cmp file1hash file2hash</code></pre>
-      <p class="muted">
-        If the files differ, <code>cmp</code> reports the first byte position/line where they diverge.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>Access Controls Worksheet — Mini Investigation</h2>
-      <p class="muted">
-        Scenario summary: a business stopped a suspicious deposit to an unknown bank account. Your job is to
-        review logs, identify access-control issues, and recommend mitigations.
-      </p>
-
-      <div class="grid">
-        <div class="card" style="margin:0;">
-          <h3>What to Examine</h3>
-          <ul>
-            <li>Event log details (event type, date/time, IP address)</li>
-            <li>Employee directory information</li>
-            <li>Overlap between the two (to identify likely misuse)</li>
-          </ul>
-        </div>
-
-        <div class="card" style="margin:0;">
-          <h3>What to Produce</h3>
-          <ul>
-            <li>1–2 notes about the user from the event log</li>
-            <li>1–2 access-control issues discovered</li>
-            <li>At least 2 mitigation recommendations</li>
-          </ul>
-        </div>
-      </div>
-
-      <h3>Example Issues & Mitigations (Template)</h3>
-      <ul>
-        <li><strong>Issue:</strong> Access not revoked when employees leave (or role changes).</li>
-        <li><strong>Mitigation:</strong> Add an offboarding checklist that immediately disables accounts and removes shared-drive access.</li>
-        <li><strong>Issue:</strong> Overly broad permissions in a shared cloud drive.</li>
-        <li><strong>Mitigation:</strong> Enforce least privilege with role-based access control (RBAC) and periodic access reviews.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>How to Run (Quick Start)</h2>
-      <ol>
-        <li>Open a Linux terminal.</li>
-        <li>Copy/paste each command block in order.</li>
-        <li>Confirm outputs with <code>ls</code> and read recovered files with <code>cat</code>.</li>
-      </ol>
-    </section>
-
-    <section class="card">
-      <h2>Folder Structure (Suggested)</h2>
-      <pre><code>.
-├─ README.html
-├─ notes/
-│  ├─ decryption-notes.md
-│  └─ hashing-notes.md
-└─ screenshots/
-   └─ (optional images of terminal output)</code></pre>
-    </section>
-
-    <footer class="muted" style="margin-top:22px;">
-      <p>
-        Source material: "Encryption and Decryption" lab handout. (See attached PDF in this repo or project folder.)
-      </p>
-    </footer>
-  </main>
-</body>
-</html>
 ```
+
+Compare them byte by byte:
+
+```bash
+cmp file1hash file2hash
+```
+
+📸 **Screenshot:**
+*(Insert screenshot showing hash comparison output)*
+
+```md
+![Hash comparison](screenshots/hash-comparison.png)
+```
+
+---
+
+## 🛂 Access Controls Worksheet — Security Analysis
+
+### 🎯 Objective
+
+Analyze an access-control failure that nearly resulted in financial loss and recommend security improvements.
+
+---
+
+### 📖 Scenario Summary
+
+A growing business almost transferred money to an unknown bank account.
+The transaction was stopped, and the owner requested an investigation to prevent future incidents.
+
+---
+
+### 🔍 Investigation Steps
+
+* Reviewed **event logs** (event type, date, time, IP address)
+* Compared logs with the **employee directory**
+* Identified access-control weaknesses
+* Proposed security mitigations
+
+📸 **Screenshot:**
+*(Insert screenshot of event log and worksheet)*
+
+```md
+![Access control worksheet](screenshots/access-control.png)
+```
+
+---
+
+### ⚠️ Identified Issues (Examples)
+
+* Access was not revoked after employee role changes
+* Shared cloud drive permissions were overly broad
+
+---
+
+### ✅ Recommended Mitigations
+
+* Revoke system access immediately during employee offboarding
+* Apply least-privilege access control
+* Conduct regular access audits
+* Restrict shared resource permissions
+
+---
+
+## 🗂️ Suggested Repository Structure
+
+```
+.
+├── README.md
+├── screenshots/
+│   ├── readme-file.png
+│   ├── caesar-decryption.png
+│   ├── openssl-decryption.png
+│   ├── hash-generation.png
+│   ├── hash-comparison.png
+│   └── access-control.png
+```
+
+---
+
+## 📚 Source
+
+This project is based on the **Encryption and Decryption** lab covering Linux-based cryptography, hashing, and access-control analysis. 
+
+---
+
+If you want, next I can:
+
+* Rename screenshots for you exactly as GitHub expects
+* Tighten the language for **recruiters / portfolios**
+* Add a **skills section** (Linux, OpenSSL, Hashing, IAM)
+* Convert this into **Google Cybersecurity Certificate–style documentation**
+
+Just tell me 👍
