@@ -1,243 +1,76 @@
-Perfect — I’ll **organise exactly what’s in your file into a clean, professional GitHub README**, **without adding new content**, and **with placeholders that retain your screenshots** (so GitHub renders them).
-You can copy-paste this directly into `README.md`.
+Encryption and Decryption
 
-Everything below is structured **only from your uploaded file**. 
 
----
+# MODULE 2 — Decrypt an encrypted message (Linux commands)
+# Assets, Threats, and Vulnerabilities
 
-# 🔐 Encryption and Decryption (Linux)
-
-This repository documents hands-on **Linux command-line exercises** focused on **encryption, decryption, hashing, and access control analysis**.
-The project demonstrates practical cybersecurity skills used by entry-level security analysts.
-
----
-
-## 📂 Project Overview
-
-This lab covers three core security tasks:
-
-* Decrypting encrypted messages using Linux commands
-* Creating and comparing hash values to detect file tampering
-* Assessing access-control weaknesses and proposing mitigations
-
----
-
-## 🧩 Module 2 — Decrypt an Encrypted Message (Linux Commands)
-
-### 🎯 Objective
-
-Learn how encrypted messages can be decrypted using Linux utilities such as `tr` and `openssl`.
-
----
-
-### 🔹 Task 1: Read the contents of a file
-
-List files in the home directory and read the provided instructions.
-
-```bash
+# Task 1: Read the contents of a file
+# List files in the home directory
 ls /home/analyst
+# Read the instructions in README.txt
 cat README.txt
-```
-
-📸 **Screenshot:**
-*(Insert screenshot showing directory listing and README contents)*
-
-```md
-![Reading README file](screenshots/readme-file.png)
-```
-
----
-
-### 🔹 Task 2: Find and decrypt a hidden file (Caesar cipher)
-
-Navigate to the Caesar cipher directory and reveal hidden files.
-
-```bash
+# Task 2: Find and decrypt a hidden file
+# Change to the caesar subdirectory
 cd caesar
+# List all files, including hidden files
 ls -a
+# View the contents of the hidden file
 cat .leftShift3
-```
-
-Decrypt the hidden file using a left shift of 3:
-
-```bash
+# Decrypt the Caesar cipher (left shift by 3)
 cat .leftShift3 | tr "d-za-cD-ZA-C" "a-zA-Z"
-```
 
-Return to the home directory:
-
-```bash
+# Return to the home directory
 cd ~
-```
-
-📸 **Screenshot:**
-*(Insert screenshot showing hidden file and decrypted output)*
-
-```md
-![Caesar cipher decryption](screenshots/caesar-decryption.png)
-```
-
----
-
-### 🔹 Task 3: Decrypt an encrypted file using OpenSSL
-
-Decrypt the AES-256-CBC encrypted file using the provided key.
-
-```bash
+# Task 3: Decrypt the encrypted file
+# Decrypt the encrypted file using the revealed OpenSSL command
 openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
-```
-
-Confirm the file and read the decrypted message:
-
-```bash
+# Confirm the decrypted file exists
 ls
+# Read the decrypted message
 cat Q1.recovered
-```
 
-📸 **Screenshot:**
-*(Insert screenshot showing successful decryption output)*
+Activity overview 2
+As a security analyst, you’ll need to implement security controls to protect organizations against a range of threats.
+That’s where hashing comes in. Previously, you learned that a hash function is an algorithm that produces a code that can’t be decrypted. Hash functions are used to uniquely identify the contents of a file so that you can check whether it has been modified. This code provides a unique identifier known as a hash value or digest.
+For example, a malicious program may mimic an original program. If one code line is different from the original program, it produces a different hash value. Security teams can then identify the malicious program and work to mitigate the risk.
+Many tools are available to compare hashes for various scenarios. But for a security analyst it’s important to know how to manually compare hashes.
+In this lab activity, we’ll create hash values for two files and use Linux commands to manually examine the differences.
+Code: 
+# MODULE 2 — Create hash values (Linux commands)
+# Assets, Threats, and Vulnerabilities
+# Task 1: Generate hashes for files
 
-```md
-![OpenSSL decryption](screenshots/openssl-decryption.png)
-```
-
----
-
-## 🔑 Module 2 — Create Hash Values (Linux Commands)
-
-### 🎯 Objective
-
-Understand how hashing is used to verify file integrity and detect tampering.
-
----
-
-### 🔹 Task 1: Generate SHA-256 hash values
-
-Display file contents and generate hashes.
-
-```bash
+# List the contents of the home directory
 ls
+
+# Display the contents of file1.txt
 cat file1.txt
+
+# Display the contents of file2.txt
 cat file2.txt
 
+# Generate a SHA-256 hash for file1.txt
 sha256sum file1.txt
+
+# Generate a SHA-256 hash for file2.txt
 sha256sum file2.txt
-```
 
-📸 **Screenshot:**
-*(Insert screenshot showing hash generation)*
+# Task 2: Compare hashes
 
-```md
-![SHA-256 hashes](screenshots/hash-generation.png)
-```
-
----
-
-### 🔹 Task 2: Compare hash values
-
-Save the hashes into files:
-
-```bash
+# Generate the hash for file1.txt and save it to file1hash
 sha256sum file1.txt >> file1hash
+
+# Generate the hash for file2.txt and save it to file2hash
 sha256sum file2.txt >> file2hash
-```
 
-View the hash files:
-
-```bash
+# Display the contents of the hash files
 cat file1hash
 cat file2hash
-```
 
-Compare them byte by byte:
-
-```bash
+# Compare the two hash files byte by byte
 cmp file1hash file2hash
-```
 
-📸 **Screenshot:**
-*(Insert screenshot showing hash comparison output)*
+<img width="940" height="423" alt="image" src="https://github.com/user-attachments/assets/c504d6ea-8741-436e-a8d1-ccfa49a08ec7" />
 
-```md
-![Hash comparison](screenshots/hash-comparison.png)
-```
+ 
 
----
-
-## 🛂 Access Controls Worksheet — Security Analysis
-
-### 🎯 Objective
-
-Analyze an access-control failure that nearly resulted in financial loss and recommend security improvements.
-
----
-
-### 📖 Scenario Summary
-
-A growing business almost transferred money to an unknown bank account.
-The transaction was stopped, and the owner requested an investigation to prevent future incidents.
-
----
-
-### 🔍 Investigation Steps
-
-* Reviewed **event logs** (event type, date, time, IP address)
-* Compared logs with the **employee directory**
-* Identified access-control weaknesses
-* Proposed security mitigations
-
-📸 **Screenshot:**
-*(Insert screenshot of event log and worksheet)*
-
-```md
-![Access control worksheet](screenshots/access-control.png)
-```
-
----
-
-### ⚠️ Identified Issues (Examples)
-
-* Access was not revoked after employee role changes
-* Shared cloud drive permissions were overly broad
-
----
-
-### ✅ Recommended Mitigations
-
-* Revoke system access immediately during employee offboarding
-* Apply least-privilege access control
-* Conduct regular access audits
-* Restrict shared resource permissions
-
----
-
-## 🗂️ Suggested Repository Structure
-
-```
-.
-├── README.md
-├── screenshots/
-│   ├── readme-file.png
-│   ├── caesar-decryption.png
-│   ├── openssl-decryption.png
-│   ├── hash-generation.png
-│   ├── hash-comparison.png
-│   └── access-control.png
-```
-
----
-
-## 📚 Source
-
-This project is based on the **Encryption and Decryption** lab covering Linux-based cryptography, hashing, and access-control analysis. 
-
----
-
-If you want, next I can:
-
-* Rename screenshots for you exactly as GitHub expects
-* Tighten the language for **recruiters / portfolios**
-* Add a **skills section** (Linux, OpenSSL, Hashing, IAM)
-* Convert this into **Google Cybersecurity Certificate–style documentation**
-
-Just tell me 👍
