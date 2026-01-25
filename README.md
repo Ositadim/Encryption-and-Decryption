@@ -34,9 +34,11 @@ Change to the caesar subdirectory, list all files, including hidden files and to
 <img width="710" height="121" alt="image" src="https://github.com/user-attachments/assets/7fd98e2e-c509-491a-869b-6229501c96bb" />
 
 Decrypt the Caesar cipher (left shift by 3)
+
 <img width="532" height="69" alt="image" src="https://github.com/user-attachments/assets/55127681-a150-40a8-9ef4-b52f3f59d47f" />
 
-Return to the home directory
+Return to the home directory 
+
 <img width="572" height="68" alt="image" src="https://github.com/user-attachments/assets/1ccfc68b-2e7a-466a-be51-3cae4a6160c7" />
 
 ## The tr command remaps letters to reverse the Caesar cipher.
@@ -101,6 +103,13 @@ cmp file1hash file2hash
 
 <img width="600" height="523" alt="image" src="https://github.com/user-attachments/assets/84407997-2746-4c37-8de7-4ffe3bbab1b4" />
 
-
+Manual Practice on the use of cryptography, encryption and #Hashing in protecting data or information.
  
+<img width="527" height="174" alt="image" src="https://github.com/user-attachments/assets/fff8f55f-47e0-41ce-8969-3cb842f384dc" /><br/>
+
+
+<img width="455" height="302" alt="image" src="https://github.com/user-attachments/assets/23c3f217-768e-43ae-98f8-794adfcee63e" /><br/>
+
+
+<img width="534" height="151" alt="image" src="https://github.com/user-attachments/assets/9f18a1eb-1f81-4c5e-b9f3-bee5750f63b8" />
 
