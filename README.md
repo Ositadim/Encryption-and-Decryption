@@ -1,5 +1,50 @@
  Encryption and Decryption
 
+ 🛠️ Skills Demonstrated
+🐧 Linux (Command Line)
+
+Navigating directories and files (ls, cd, cat)
+
+Working with hidden files
+
+Executing security-related commands in a Linux environment
+
+🔐 OpenSSL
+
+Decrypting AES-256-CBC encrypted files
+
+Using secure key derivation (-pbkdf2)
+
+Handling Base64-encoded encrypted data
+
+Verifying successful decryption through file inspection
+
+🔑 Cryptographic Hashing
+
+Generating SHA-256 hash values with sha256sum
+
+Understanding file integrity and tamper detection
+
+Comparing hash outputs manually using cmp
+
+Identifying file changes through hash mismatches
+
+🛂 Identity & Access Management (IAM)
+
+Analyzing authentication and authorization controls
+
+Reviewing event logs to identify suspicious user activity
+
+Identifying access-control weaknesses
+
+Recommending mitigations such as:
+
+Least-privilege access
+
+Role-based access control (RBAC)
+
+Timely access revocation during offboarding.
+
 # MODULE 2 — Decrypt an encrypted message (Linux commands)
 # Assets, Threats, and Vulnerabilities
 
