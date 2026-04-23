@@ -90,21 +90,22 @@ Generate a SHA-256 hash for file2.txt
 Task 2: Compare hashes
 Generate the hash for file1.txt and save it to file1hash
 - sha256sum file1.txt >> file1hash
+  <img width="386" height="46" alt="image" src="https://github.com/user-attachments/assets/87037559-31fe-4807-ae6c-de9913279722" />
 
 Generate the hash for file2.txt and save it to file2hash
 - sha256sum file2.txt >> file2hash
   
-<img width="577" height="88" alt="image" src="https://github.com/user-attachments/assets/c3f12eed-69aa-4506-8f8d-865f8ebc2eee" /> <br/>
+<img width="409" height="45" alt="image" src="https://github.com/user-attachments/assets/7bed952f-b555-44b9-84ae-6941f7bcb9ec" /> <br/>
 
 Display the contents of the hash files <br/>
-- cat file1hash <br/>
-- cat file2hash <br/>
+<img width="152" height="31" alt="image" src="https://github.com/user-attachments/assets/ea83dd7f-12fc-4446-ad7e-a2f25f3531ea" /> <br/>
+<img width="170" height="40" alt="image" src="https://github.com/user-attachments/assets/df28ea2d-7a97-4ecc-b386-9c4b52cced8c" /> <br/>
   
 <img width="478" height="101" alt="image" src="https://github.com/user-attachments/assets/95b95077-bc59-4040-a6f7-3546d032690a" /> <br/>
 
 . Compare the two hash files byte by byte <br/>
 
-cmp file1hash file2hash <br/>
+<img width="275" height="33" alt="image" src="https://github.com/user-attachments/assets/bc46d1c4-09b8-49b9-8e4e-a92b15742891" /> <br/>
 
 - If the files differ, cmp reports the exact location of the mismatch. <br/>
 
