@@ -1,7 +1,7 @@
   **Encryption and Decryption** <br/>
 **Screenshot of Lab**
 
-<img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/84407997-2746-4c37-8de7-4ffe3bbab1b4" /> <br/>
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/84407997-2746-4c37-8de7-4ffe3bbab1b4" /> <br/>
 
 Skills Demonstrated <br/>
 - Linux (Command Line) <br/>
