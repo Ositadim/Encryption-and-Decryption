@@ -109,6 +109,6 @@ Display the contents of the hash files <br/>
 
 - If the files differ, cmp reports the exact location of the mismatch. <br/>
 
-<img width="600" height="523" alt="image" src="https://github.com/user-attachments/assets/84407997-2746-4c37-8de7-4ffe3bbab1b4" /> <br/>
+<img width="600" height="323" alt="image" src="https://github.com/user-attachments/assets/84407997-2746-4c37-8de7-4ffe3bbab1b4" /> <br/>
 
 
