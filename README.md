@@ -108,7 +108,7 @@ Redirected each hash output into its own file (`file1hash`, `file2hash`) for man
 
 Used `cmp` to compare `file1hash` and `file2hash` byte by byte. Because the files differed, `cmp` reported the exact byte and line where the first mismatch occurred — confirming that `file1.txt` and `file2.txt` do not have identical contents, and demonstrating how hashing exposes even the smallest file modification.
 
-## Key Takeaways
+## Conclusion
 
 * Hash functions produce a unique digest for file contents, even a one-character change produces a completely different hash, making hashing a reliable tamper-detection control.
 * OpenSSL with `-pbkdf2` demonstrates why secure key derivation matters when handling encrypted data.
